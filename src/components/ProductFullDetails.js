@@ -9,6 +9,7 @@ import { Card } from "semantic-ui-react";
 import { Rating } from "semantic-ui-react";
 import BottomBorderDiv from "./UI/BottomBorderDiv";
 import Quantity from "./UI/Quantity";
+import {ProductUrl, CheckoutUrl, CartItemsUrl} from '../Routs.js';
 
 const ProductFullDetails = (props) => {
   const eventCtx = useContext(EventContext);
@@ -23,7 +24,7 @@ const ProductFullDetails = (props) => {
     goToOrderProggress();
   };
   const goToOrderProggress = () => {
-     navigate("/OrderProgress", { replace: true });
+     navigate(CheckoutUrl, { replace: true });
   };
   return (
     <div className={classes["right-align"]}>

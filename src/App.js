@@ -10,6 +10,7 @@ import EventContext, {
 } from "./context/EventContext";
 import { useNavigate } from "react-router-dom";
 import CartItems from "./components/CartItems";
+import {ProductUrl, CheckoutUrl, CartItemsUrl} from './Routs.js';
 
 const mockItem = {
   name: "מחשב נייד Lenovo ThinkBook 15 G2 ITL 20VE006SIV לנובו",
@@ -57,19 +58,19 @@ function App() {
           <main>
             <Routes>
               <Route
-                path="/"
+                path={ProductUrl}
                 element={
                   <Pdp product={mockItem} shippingMethod={shippingMethod} />
                 }
               ></Route>
               <Route
                 exact
-                path="/OrderProgress"
+                path={CheckoutUrl}
                 element={<OrderProgress />}
               ></Route>
               <Route
                 exact
-                path="/CartItems"
+                path={CartItemsUrl}
                 element={<CartItems />}
               ></Route>
             </Routes>
