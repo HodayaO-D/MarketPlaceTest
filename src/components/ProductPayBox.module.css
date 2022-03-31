@@ -1,0 +1,19 @@
+.h2{
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+
+}
+
+ul li{
+    text-align: start;
+}
+
+.buy-btn{
+    width: -webkit-fill-available;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+

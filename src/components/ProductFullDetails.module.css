@@ -1,0 +1,20 @@
+.right-align {
+  text-align: left;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+.side-by-side{
+  width: 100%; overflow: hidden;
+}
+
+.left{
+  width: 10%; float: left;
+}
+
+.right{
+  margin-left: 85%;
+}

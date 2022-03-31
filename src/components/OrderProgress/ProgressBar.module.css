@@ -1,0 +1,9 @@
+.badge-size{
+    width: 5rem;
+    height: 5rem;
+
+}
+
+.badge-size span{
+    font-size: 2.5rem;
+}

@@ -1,0 +1,31 @@
+.badge {
+    /* background-color: #beb6b2;
+    padding: 0.25rem 1rem;
+    border-radius: 25px;
+    margin-left: 1rem;
+    font-weight: bold;
+    color: rgb(110, 226, 43); */
+    /* background-color: blue; */
+  }
+
+  .span{
+    /* display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 42px;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease; */
+    /* position: absolute; */
+    bottom: 0;
+    right: -6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    background-color: rgb(133, 31, 31);
+    border-radius: 50%;
+  }
