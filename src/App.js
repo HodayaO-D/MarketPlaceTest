@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -10,7 +10,7 @@ import EventContext, {
 } from "./context/EventContext";
 import { useNavigate } from "react-router-dom";
 import CartItems from "./components/CartItems";
-import {ProductUrl, CheckoutUrl, CartItemsUrl} from './Routs.js';
+import { ProductUrl, CheckoutUrl, CartItemsUrl } from "./Routs.js";
 
 const mockItem = {
   name: "מחשב נייד Lenovo ThinkBook 15 G2 ITL 20VE006SIV לנובו",
@@ -49,6 +49,19 @@ const shippingMethod = [
 ];
 function App() {
   const eventCtx = useContext(EventContext);
+  // const [data, setData] = useState(null);
+
+  // useEffect(() => {
+  //   fetch('http://localhost:8080/api')
+  //     .then((res) => {
+  //       debugger;
+  //       res.json();
+  //     })
+  //     .then((data) => {
+  //       debugger;
+  //       setData(data.message);
+  //     });
+  // }, []);
 
   return (
     <EventContextProvider>
@@ -68,11 +81,7 @@ function App() {
                 path={CheckoutUrl}
                 element={<OrderProgress />}
               ></Route>
-              <Route
-                exact
-                path={CartItemsUrl}
-                element={<CartItems />}
-              ></Route>
+              <Route exact path={CartItemsUrl} element={<CartItems />}></Route>
             </Routes>
           </main>
         </div>
