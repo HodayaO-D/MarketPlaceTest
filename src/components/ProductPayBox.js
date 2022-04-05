@@ -1,11 +1,8 @@
 import React, { useReducer, useContext } from "react";
 import EventContext from "../context/EventContext";
-import classes from "./ProductPayBox.module.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import FormCheck from "react-bootstrap/FormCheck";
-import { Link } from "react-router-dom";
-import { Card } from "semantic-ui-react";
+import { createAnonymouseCart } from "../api/apiManager";
 
 const defaultShippingMethod = { isValid: false, shippingMethod: {} };
 
@@ -40,16 +37,15 @@ const ProductPayBox = (props) => {
 
   const onBuyBtnClickHandler = () => {
     const order = {
-      // product: props.product,
       shippingMethod: shippingMethod.shippingMethod,
     };
-    // eventCtx.onBuy(order);    
     props.onBuyBtnClick(shippingMethod.shippingMethod);
   };
+  
   const shippingMethodHtml = (
     <ul>
       {props.shippingMethod.map((m) => (
-        <li key={m.id}>          
+        <li key={m.id}>
           <Form.Check
             type="radio"
             id={m.id}
@@ -74,14 +70,14 @@ const ProductPayBox = (props) => {
           order: { shippingMethod: shippingMethod.shippingMethod },
         }}
       > */}
-        <Button
-          // className={classes["buy-btn"]}
-          variant="success"
-          onClick={onBuyBtnClickHandler}
-          disabled={!shippingMethod.isValid}
-        >
-          הוסף לעגלה
-        </Button>
+      <Button
+        // className={classes["buy-btn"]}
+        variant="success"
+        onClick={onBuyBtnClickHandler}
+        disabled={!shippingMethod.isValid}
+      >
+        הוסף לעגלה
+      </Button>
       {/* </Link> */}
     </div>
   );

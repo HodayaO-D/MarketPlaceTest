@@ -49,7 +49,7 @@ function App() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    productDetails(300046592,(res) => {
+    /*productDetails(300046592,(res) => {
       setProduct({
         name: res.name,
         id: res.code,
@@ -62,7 +62,21 @@ function App() {
         numberOfReviews: res.numberOfReviews,
         stock:res.stock
       });
-    });
+    });*/
+    productDetails(300046592).then((res)=> {
+      setProduct({
+        name: res.name,
+        id: res.code,
+        shortDesciption: res.description,
+        imageName: "lenovo.png",
+        fullDetails: res.summary,
+        price: res.price.formattedValue,
+        properies: "",
+        averageRating: res.averageRating,
+        numberOfReviews: res.numberOfReviews,
+        stock:res.stock
+      });
+    })
   }, []);
 
   return (
