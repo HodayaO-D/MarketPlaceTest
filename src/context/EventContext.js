@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const EventContext = React.createContext({
   ordersList: [],
   onBuy: () => {},
-  onNavigate: () => {},
+  user: {cart:{}}
 });
 
 export const eNavigate = {
@@ -13,16 +13,6 @@ export const eNavigate = {
 
 export const EventContextProvider = (props) => {
   const [ordersList, setOrdersList] = useState([]);
-  // useEffect(() => {
-  //   const storedOrdersList = localStorage.getItem("ordersList");
-  //   if (storedOrdersList) {
-  //     setOrdersList(storedOrdersList);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("ordersList", ordersList);
-  // }, [ordersList]);
 
   const onBuyHandler = (order) => {
     addOrder(order);
@@ -39,7 +29,8 @@ export const EventContextProvider = (props) => {
     <EventContext.Provider
       value={{
         ordersList: ordersList,
-        onBuy: onBuyHandler
+        onBuy: onBuyHandler,
+        user: {cart:{}}
       }}
     >
       {props.children}

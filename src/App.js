@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Pdp from "./components/Pdp";
 import OrderProgress from "./components/OrderProgress/OrderProgress";
-import EventContext, {
-  EventContextProvider,
-  eNavigate,
-} from "./context/EventContext";
-import { useNavigate } from "react-router-dom";
+import  { EventContextProvider } from "./context/EventContext";
 import CartItems from "./components/CartItems";
 import { ProductUrl, CheckoutUrl, CartItemsUrl } from "./Routs.js";
+import { productDetails } from "./api/apiManager";
+import TextLoader from "./components/UI/TextLoader/TextLoader";
 
 const mockItem = {
   name: "מחשב נייד Lenovo ThinkBook 15 G2 ITL 20VE006SIV לנובו",
@@ -48,20 +46,24 @@ const shippingMethod = [
   { id: 3, methodName: "One Day Delivary", price: 100 },
 ];
 function App() {
-  const eventCtx = useContext(EventContext);
-  // const [data, setData] = useState(null);
+  const [product, setProduct] = useState(null);
 
-  // useEffect(() => {
-  //   fetch('http://localhost:8080/api')
-  //     .then((res) => {
-  //       debugger;
-  //       res.json();
-  //     })
-  //     .then((data) => {
-  //       debugger;
-  //       setData(data.message);
-  //     });
-  // }, []);
+  useEffect(() => {
+    productDetails(300046592,(res) => {
+      setProduct({
+        name: res.name,
+        id: res.code,
+        shortDesciption: res.description,
+        imageName: "lenovo.png",
+        fullDetails: res.summary,
+        price: res.price.formattedValue,
+        properies: "",
+        averageRating: res.averageRating,
+        numberOfReviews: res.numberOfReviews,
+        stock:res.stock
+      });
+    });
+  }, []);
 
   return (
     <EventContextProvider>
@@ -73,7 +75,11 @@ function App() {
               <Route
                 path={ProductUrl}
                 element={
-                  <Pdp product={mockItem} shippingMethod={shippingMethod} />
+                  product ? (
+                    <Pdp product={product} shippingMethod={shippingMethod} />
+                  ) : (
+                    <TextLoader title="Loading product from api" />
+                  )
                 }
               ></Route>
               <Route

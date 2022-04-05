@@ -1,6 +1,5 @@
 import classes from "./ProductFullDetails.module.css";
-//hand point right - semanticui
-import { Message, Icon } from "semantic-ui-react";
+import { Message } from "semantic-ui-react";
 import ProductPayBox from "./ProductPayBox";
 import React, { useContext, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +8,7 @@ import { Card } from "semantic-ui-react";
 import { Rating } from "semantic-ui-react";
 import BottomBorderDiv from "./UI/BottomBorderDiv";
 import Quantity from "./UI/Quantity";
-import {ProductUrl, CheckoutUrl, CartItemsUrl} from '../Routs.js';
+import { CheckoutUrl} from '../Routs.js';
 
 const ProductFullDetails = (props) => {
   const eventCtx = useContext(EventContext);
@@ -34,8 +33,8 @@ const ProductFullDetails = (props) => {
             <Card.Content>
               <BottomBorderDiv>
                 <h2 className={classes.bold}>{props.product.name}</h2>
-                <Rating icon="star" defaultRating={4} maxRating={5} /> (45
-                reviews)
+                <Rating icon="star" defaultRating={props.product.averageRating} maxRating={5} /> {`(${props.product.numberOfReviews} reviews)`}
+                
               </BottomBorderDiv>
 
               <BottomBorderDiv>
@@ -44,10 +43,10 @@ const ProductFullDetails = (props) => {
                 <p>{props.product.fullDetails}</p>
                 <p>{props.product.properies}</p>
                 <br />
-                <h3 className={classes.bold}>{props.product.price} ₪ </h3>
+                <h3 className={classes.bold}>{props.product.price}</h3>
               </BottomBorderDiv>
               <BottomBorderDiv>
-                <Quantity />
+                <Quantity /> {`${props.product.stock.stockLevel} available in stock`}
               </BottomBorderDiv>
 
               <ProductPayBox
