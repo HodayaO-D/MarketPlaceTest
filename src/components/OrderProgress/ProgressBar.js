@@ -1,5 +1,3 @@
-import classes from "./ProgressBar.module.css";
-import Badge from "react-bootstrap/Badge";
 import { Icon, Step } from "semantic-ui-react";
 
 const ProgressBar = (props) => {  

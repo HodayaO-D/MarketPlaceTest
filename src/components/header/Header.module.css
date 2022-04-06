@@ -1,5 +1,4 @@
 .header {
-  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -21,25 +20,13 @@
 }
 
 .side-by-side {
-  /* width: 100%; overflow: hidden; */
   width: 10rem;
 }
 
-/* .left {
-  width: 45%;
-  float: left;
-}
-
-.right {
-  margin-left: 55%;
-} */
-
 .logo_img{
-  /* width: 4rem; */
 }
 
 .header_top{
-  /* padding: 25px 0; */
   background-color: #fcb800;
   border-bottom: 1px solid rgba(0,0,0,.15);
   height: 5rem;
@@ -48,25 +35,19 @@
 
 .container{
   display: flex;
-  /* flex-flow: row nowrap; */
   margin-left: 5rem;
   margin-right: 5rem;
 }
 
 .left{
-  /* max-width: 300px; */
     display: flex;
-    align-items: center;
-    /* width: 10%; */
-    /* float: left; */
+    align-items: center;  
 }
 .right{
-  /* max-width: 370px; */
   display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 40%;
-    /* float: right; */
 }
 
 .margin{

@@ -1,4 +1,4 @@
-import React, { Fragment, Component, useReducer } from "react";
+import React, { useReducer } from "react";
 import { Form, Button } from "semantic-ui-react";
 
 const fNameReducer = (state, action) => {

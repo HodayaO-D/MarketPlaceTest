@@ -1,12 +1,10 @@
-import React, { useReducer, useContext } from "react";
-import EventContext from "../../context/EventContext"
+import React, { useReducer } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const defaultShippingMethod = { isValid: false, shippingMethod: {} };
 
 const ProductPayBox = (props) => {
-  const eventCtx = useContext(EventContext);
 
   const shippingMethodReducer = (state, action) => {
     if (action.type === "SHIPPING_METHOD_SELECTED") {
@@ -29,15 +27,11 @@ const ProductPayBox = (props) => {
   const shippingMethodOnSelectHandler = (event) => {
     dispatchShippingMethod({
       type: "SHIPPING_METHOD_SELECTED",
-      // methodId: +event.target.value,
       methodId: +event.target.id,
     });
   };
 
-  const onBuyBtnClickHandler = () => {
-    const order = {
-      shippingMethod: shippingMethod.shippingMethod,
-    };
+  const onBuyBtnClickHandler = () => {  
     props.onBuyBtnClick(shippingMethod.shippingMethod);
   };
   
@@ -59,25 +53,15 @@ const ProductPayBox = (props) => {
 
   return (
     <div>
-      {/* <h2 className={classes.h2}>Price : {props.price} ש"ח</h2> */}
       <h3>לרכישה - בחר שיטת שילוח</h3>
-      <div>{shippingMethodHtml}</div>
-      {/* <Link
-        to="/OrderProgress"
-        params={{
-          product: props.product,
-          order: { shippingMethod: shippingMethod.shippingMethod },
-        }}
-      > */}
+      <div>{shippingMethodHtml}</div>    
       <Button
-        // className={classes["buy-btn"]}
         variant="success"
         onClick={onBuyBtnClickHandler}
         disabled={!shippingMethod.isValid}
       >
         הוסף לעגלה
       </Button>
-      {/* </Link> */}
     </div>
   );
 };

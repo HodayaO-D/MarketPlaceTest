@@ -1,13 +1,8 @@
-import React, { Fragment } from "react";
-import { Form, Button, Card } from "semantic-ui-react";
-import lenovo from "../../assets/images/lenovo.png";
-import ProductBaseDetails from "../pdp/ProductBaseDetails";
-import ProductImage from "../pdp/ProductImage";
+import React from "react";
+import {  Button } from "semantic-ui-react";
 import classes from "./OrderReview.module.css";
-import PaymentInfo from "./PaymentInfo";
-import ShipingAddress from "./ShipingAddress";
-import { Message, Grid, Image } from "semantic-ui-react";
-import { Icon, Table } from "semantic-ui-react";
+import { Message, Grid } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 
 const OrderReview = (props) => {
   console.table(props.orderDetails);

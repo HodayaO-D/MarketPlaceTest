@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import EventContext from "../../context/EventContext";
+import React  from "react";
 import classes from "./Header.module.css";
 import Cart from "../cart/Cart";
 import Profile from "../menu/Profile";
@@ -8,14 +7,13 @@ import Menu from "../menu/Menu";
 import { Search } from 'semantic-ui-react'
 
 const Header = (props) => {
-  const eventCtx = useContext(EventContext);
 
   return (
     <header className={classes["header_top"]}>
       <div className={classes["container"]}>
         <div className={classes["left"]}>
           <div className={classes["margin"]}>
-            <img className={classes["logo_img"]} src={zapLogo} />
+            <img className={classes["logo_img"]} src={zapLogo} alt=""/>
           </div>
           <div className={classes["margin"]}>
             <h2>Market Place</h2>

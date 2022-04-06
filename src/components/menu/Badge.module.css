@@ -8,14 +8,7 @@
     /* background-color: blue; */
   }
 
-  .span{
-    /* display: inline-block;
-    position: relative;
-    width: 30px;
-    height: 42px;
-    -webkit-transition: all .4s ease;
-    transition: all .4s ease; */
-    /* position: absolute; */
+  .span{   
     bottom: 0;
     right: -6px;
     display: flex;

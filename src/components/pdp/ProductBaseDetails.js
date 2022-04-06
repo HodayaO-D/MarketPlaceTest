@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import ProductImage from './ProductImage';
 import classes from './ProductBaseDetails.module.css';
 

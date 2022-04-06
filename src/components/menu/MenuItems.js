@@ -2,8 +2,6 @@ import React, { Component, useState } from "react";
 import { Input, Label, Menu } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import {ProductUrl, CheckoutUrl, CartItemsUrl} from '../../Routs.js';
-// import {ePage, MPRouts} from '../../Routs.ts';
-
 
 const MenuItems = (props) => {
   const [activeItem, setActiveItem] = useState("Product");
@@ -12,7 +10,6 @@ const MenuItems = (props) => {
   const handleItemClick = (e, { name }) => {
     setActiveItem({ activeItem: name });
     props.onSelectItem();
-    //  MPRouts.navigate(ePage.Cart);
    
     if (name === "Product") {
       goPdp();

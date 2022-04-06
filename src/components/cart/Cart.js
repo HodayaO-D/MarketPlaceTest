@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import { Badge } from 'react-bootstrap';
 import Badge from "../menu/Badge";
 import { Button } from "semantic-ui-react";
 import classes from "./Cart.module.css";

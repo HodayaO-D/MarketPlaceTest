@@ -14,7 +14,7 @@ const CartItems = (props) => {
       return(
     <tr>
       <td >
-        <img className={classes['img']} src={getImagePath(e.product.imageName)} />
+        <img className={classes['img']} src={getImagePath(e.product.imageName)} alt=""/>
       </td>
       <td>{e.product.name}</td>
       <td>{e.product.price}</td>
@@ -35,10 +35,7 @@ const CartItems = (props) => {
           </tr>
         </thead>
         <tbody>
-          {tBody}
-            {/* <td>3</td>
-            <td colSpan={2}>Larry the Bird</td>
-            <td>@twitter</td> */}
+          {tBody}       
         </tbody>
       </Table>
     </div>

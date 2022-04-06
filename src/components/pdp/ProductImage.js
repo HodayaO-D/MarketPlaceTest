@@ -4,7 +4,7 @@ const ProductImage = (props) => {
   
   return (
     <div className={classes['main-image']}>
-      <img src={imgPath} />
+      <img src={imgPath} alt=""/>
     </div>
   );
 };

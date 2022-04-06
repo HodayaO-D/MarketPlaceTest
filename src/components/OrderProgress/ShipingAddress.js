@@ -1,12 +1,9 @@
-import React, {
-  useState, 
-} from "react";
+import React from "react";
 import { Form, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-
-const ShipingAddress = (props) => {  
+const ShipingAddress = (props) => {
   const validationSchema = Yup.object().shape({
     firstName: Yup.string()
       .min(2, "Too Short!")
@@ -53,17 +50,17 @@ const ShipingAddress = (props) => {
               fluid
               label="First name"
               placeholder="First name"
-              onChange={formik.handleChange} 
+              onChange={formik.handleChange}
               value={formik.values.fName}
               id="firstName"
               type="text"
               name="firstName"
-            />           
+            />
             <Form.Input
               fluid
               label="Last name"
               placeholder="Last name"
-              onChange={formik.handleChange} 
+              onChange={formik.handleChange}
               value={formik.values.lName}
               id="lastName"
               type="text"
@@ -75,8 +72,8 @@ const ShipingAddress = (props) => {
               fluid
               label="Address *"
               placeholder="Address *"
-              onChange={formik.handleChange} 
-              value={formik.values.address} 
+              onChange={formik.handleChange}
+              value={formik.values.address}
               id="address"
             />
           </Form.Group>
@@ -85,8 +82,8 @@ const ShipingAddress = (props) => {
               fluid
               label="Phone/Mobile *"
               placeholder="Phone/Mobile *"
-              onChange={formik.handleChange} 
-              value={formik.values.phone} 
+              onChange={formik.handleChange}
+              value={formik.values.phone}
               type="number"
               id="phone"
             />
@@ -95,7 +92,7 @@ const ShipingAddress = (props) => {
               label="Email"
               placeholder="Email"
               onChange={formik.handleChange}
-              value={formik.values.email} 
+              value={formik.values.email}
               id="email"
             />
           </Form.Group>
@@ -105,7 +102,7 @@ const ShipingAddress = (props) => {
               label="City/Town *"
               placeholder="City/Town *"
               onChange={formik.handleChange}
-              value={formik.values.city} 
+              value={formik.values.city}
               id="city"
             />
             <Form.Input
@@ -113,7 +110,7 @@ const ShipingAddress = (props) => {
               label="Postcode"
               placeholder="Postcode"
               onChange={formik.handleChange}
-              value={formik.values.postcode} 
+              value={formik.values.postcode}
               type="number"
               id="postcode"
             />

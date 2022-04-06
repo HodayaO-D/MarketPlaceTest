@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, {  useContext, useState } from "react";
 import ProgressBar from "./ProgressBar";
 import ShipingAddress from "./ShipingAddress";
 import PaymentInfo from "./PaymentInfo";
@@ -34,8 +34,6 @@ const OrderProgress = (props) => {
     cvv: "",
   });
 
-  let orderReview;
-
   const safeSetCurrentProgressNumber = (value) => {
     setCurrentProgressNumber((prev) => {
       return prev + value;
@@ -60,21 +58,9 @@ const OrderProgress = (props) => {
         setPaymentInfo(obj);
         break;
       case 3:
-        // orderReview = obj;
         break;
     }
-  };
-
-  const orderDetails = {
-    product: props.product,
-    order: {
-      // ...props.order,
-      ...eventCtx.ordersList[0],
-      shippingAddress: filledShippingAddress,
-      paymentInfo: filledPaymentInfo,
-    },
-  };
-  // const orderDetails = {aa: "blaa",bb:"ds"};
+  }; 
 
   let levelContent;
   switch (currentProgressNumber) {
@@ -99,9 +85,8 @@ const OrderProgress = (props) => {
       levelContent = (
         <OrderReview
           orderDetails={{
-            product: eventCtx.ordersList[0].product, // props.product,
+            product: eventCtx.ordersList[0].product, 
             order: {
-              // ...props.order,
               shippingMethod: { ...eventCtx.ordersList[0].shippingMethod },
               orderNumber: orderNumber,
               shippingAddress: filledShippingAddress,
