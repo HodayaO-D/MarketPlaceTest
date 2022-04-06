@@ -13,14 +13,14 @@ const GET = (apiFuncName, callback) => {
 };
 
 const POST = (apiFuncName, params, callback) => {
-    axios
-      .post(`${baseApiUrl}/users/anonymous/carts`, params)
-      .then((res) => {
-        console.log(res);
-        callback(res.data);
-      })
-      .catch((err) => console.log(`error on api call ${apiFuncName} ${err}`));
-  };
+   axios
+    .post(`${baseApiUrl}/users/anonymous/carts`, params)
+    .then((res) => {
+      console.log(res);
+      callback(res.data);
+    })
+    .catch((err) => console.log(`error on api call ${apiFuncName} ${err}`));
+};
 
 const promis_GET = (apiFuncName) => {
   return fetch(`${baseApiUrl}/${apiFuncName}`).then((response) => {
@@ -32,14 +32,14 @@ const promis_GET = (apiFuncName) => {
 };
 
 const promis_POST = (apiFuncName, params) => {
-    console.log(`promis_POST params: ${JSON.stringify(params)}`)
+  console.log(`promis_POST params: ${JSON.stringify(params)}`);
   return fetch(`${baseApiUrl}/${apiFuncName}`, {
     method: "post",
     body: JSON.stringify(params),
     headers: {
-        'Accept':       'application/json',
-        'Content-Type': 'application/json'
-      }
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
   }).then((response) => {
     if (!response.ok) {
       throw new Error("HTTP status " + response.status);
@@ -54,22 +54,16 @@ export const helloWorld = () => {
   });
 };
 
-export const productDetails = (productId /*, callback*/) => {
-  return new Promise((resolve, reject) => {
-    return promis_GET(`productDetails/${productId}`).then((res) => {
-      resolve(res);
-    });
-  });
+export const productDetails = (productId) => {
+  return promis_GET(`productDetails/${productId}`);
 };
 
 export const createAnonymouseCart = () => {
-  return new Promise((resolve, reject) => {
-    return promis_POST(`user/anonymous/carts`, {}).then((res) => resolve(res));
-  });
+  return promis_POST(`user/anonymous/carts`, {});
 };
 
 export const addItemToCart = (params, callback) => {
-  return new Promise((resolve, reject) => {
-    return promis_POST(`users/anonymous/carts/${params.cartGuid}`, {product: {code: params.productId}}).then((res) => resolve(res));
-  });
+    return promis_POST(`users/anonymous/carts/${params.cartGuid}`, {
+        product: { code: params.productId },
+      });
 };
