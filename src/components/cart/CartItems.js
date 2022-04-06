@@ -6,20 +6,19 @@ import classes from './CartItems.module.css';
 const CartItems = (props) => {
   const eventCtx = useContext(EventContext);
   const getImagePath = (imgName) => {
-   return "images/" + imgName;
+  //  return "images/" + imgName;
+  return "https://via.placeholder.com/300/09f/fff.png"
   };
-
-  const quantity = 1;
-  const tBody = eventCtx.ordersList.map((e) => {
+  const tBody = eventCtx.serverAddedProducts.map((e) => {
       return(
-    <tr>
+    <tr key={e.entry.product.code}>
       <td >
-        <img className={classes['img']} src={getImagePath(e.product.imageName)} alt=""/>
+        <img className={classes['img']} src={getImagePath()} alt=""/>
       </td>
-      <td>{e.product.name}</td>
-      <td>{e.product.price}</td>
-      <td>{quantity}</td>
-      <td>{e.product.price * quantity}</td>
+      <td>{e.entry.product.name}</td>
+      <td>{e.entry.totalPrice.value}</td>
+      <td>{e.entry.quantity}</td>
+      <td>{e.entry.totalPrice.value * e.entry.quantity}</td>
     </tr>)
   });
   return (
