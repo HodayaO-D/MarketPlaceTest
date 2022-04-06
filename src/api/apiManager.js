@@ -41,7 +41,6 @@ const promis_POST = (apiFuncName, params) => {
         'Content-Type': 'application/json'
       }
   }).then((response) => {
-    debugger;
     if (!response.ok) {
       throw new Error("HTTP status " + response.status);
     }
@@ -71,7 +70,6 @@ export const createAnonymouseCart = () => {
 
 export const addItemToCart = (params, callback) => {
   return new Promise((resolve, reject) => {
-      debugger;
     return promis_POST(`users/anonymous/carts/${params.cartGuid}`, {product: {code: params.productId}}).then((res) => resolve(res));
   });
 };
