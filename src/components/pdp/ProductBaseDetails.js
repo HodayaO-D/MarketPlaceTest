@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import ProductImage from './ProductImage.js';
+import ProductImage from './ProductImage';
 import classes from './ProductBaseDetails.module.css';
 
 const ProductBaseDetails = (props) => {

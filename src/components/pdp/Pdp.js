@@ -1,9 +1,7 @@
-import React, { Fragment } from "react";
-import ProductBaseDetails from "./ProductBaseDetails.js";
-import ProductPayBox from "./ProductPayBox.js";
-import ProductFullDetails from "./ProductFullDetails.js";
+import React from "react";
+import ProductBaseDetails from "./ProductBaseDetails";
+import ProductFullDetails from "./ProductFullDetails";
 import classes from "./Pdp.module.css";
-import { Card } from "semantic-ui-react";
 
 const Pdp = (props) => {
   return (

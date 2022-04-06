@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header";
-import Pdp from "./components/Pdp";
-import OrderProgress from "./components/OrderProgress/OrderProgress";
+import Header from "./components/header/Header";
+import Pdp from "./components/pdp/Pdp";
+import OrderProgress from "./components/orderProgress/OrderProgress";
 import  { EventContextProvider } from "./context/EventContext";
-import CartItems from "./components/CartItems";
+import CartItems from "./components/cart/CartItems";
 import { ProductUrl, CheckoutUrl, CartItemsUrl } from "./Routs.js";
 import { productDetails } from "./api/apiManager";
 import TextLoader from "./components/UI/TextLoader/TextLoader";

@@ -1,14 +1,14 @@
 import classes from "./ProductFullDetails.module.css";
 import { Message } from "semantic-ui-react";
 import ProductPayBox from "./ProductPayBox";
-import React, { useContext, useCallback } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import EventContext from "../context/EventContext";
+import EventContext from "../../context/EventContext";
 import { Card } from "semantic-ui-react";
 import { Rating } from "semantic-ui-react";
-import BottomBorderDiv from "./UI/BottomBorderDiv";
-import Quantity from "./UI/Quantity";
-import { CheckoutUrl} from '../Routs.js';
+import BottomBorderDiv from "../UI/BottomBorderDiv";
+import Quantity from "../UI/Quantity";
+import { CheckoutUrl} from '../../Routs.js';
 
 const ProductFullDetails = (props) => {
   const eventCtx = useContext(EventContext);

@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 import React, { useContext } from "react";
-import EventContext from "../context/EventContext";
+import EventContext from "../../context/EventContext";
 import classes from './CartItems.module.css';
 
 const CartItems = (props) => {

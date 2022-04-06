@@ -1,8 +1,7 @@
 import React, { useReducer, useContext } from "react";
-import EventContext from "../context/EventContext";
+import EventContext from "../../context/EventContext"
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { createAnonymouseCart } from "../api/apiManager";
 
 const defaultShippingMethod = { isValid: false, shippingMethod: {} };
 

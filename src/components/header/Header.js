@@ -1,18 +1,14 @@
 import React, { useContext } from "react";
-import EventContext from "../context/EventContext";
+import EventContext from "../../context/EventContext";
 import classes from "./Header.module.css";
-import Cart from "./menu/Cart";
-import Profile from "./menu/Profile";
-import ProductImage from "./ProductImage";
-import zapLogo from "../assets/images/zapLogo.png";
-import Menu from "./menu/Menu";
-import { Search,  Segment } from 'semantic-ui-react'
+import Cart from "../cart/Cart";
+import Profile from "../menu/Profile";
+import zapLogo from "../../assets/images/zapLogo.png";
+import Menu from "../menu/Menu";
+import { Search } from 'semantic-ui-react'
 
 const Header = (props) => {
   const eventCtx = useContext(EventContext);
-  const onHeaderClickHandler = () => {
-    eventCtx.onCloseOrderProgress();
-  };
 
   return (
     <header className={classes["header_top"]}>

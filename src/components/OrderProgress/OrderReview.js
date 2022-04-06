@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { Form, Button, Card } from "semantic-ui-react";
 import lenovo from "../../assets/images/lenovo.png";
-import ProductBaseDetails from "../ProductBaseDetails";
-import ProductImage from "../ProductImage";
+import ProductBaseDetails from "../pdp/ProductBaseDetails";
+import ProductImage from "../pdp/ProductImage";
 import classes from "./OrderReview.module.css";
 import PaymentInfo from "./PaymentInfo";
 import ShipingAddress from "./ShipingAddress";
