@@ -5,7 +5,7 @@ import { Button } from "semantic-ui-react";
 import classes from "./Cart.module.css";
 import EventContext from "../../context/EventContext";
 import { useNavigate } from "react-router-dom";
-import {ProductUrl, CheckoutUrl, CartItemsUrl} from '../../Routs.js';
+import {CartItemsUrl} from '../../Routs.js';
 
 const Cart = (props) => {
   const eventCtx = useContext(EventContext);
@@ -19,7 +19,7 @@ const Cart = (props) => {
     <div className={classes.cart}>
       <Button circular icon="cart" onClick={goToCartItems}>
       </Button>
-      <Badge badgeNbr={eventCtx.ordersList.length} />
+      <Badge badgeNbr={eventCtx.serverAddedProducts.length} />
 
     </div>
   );

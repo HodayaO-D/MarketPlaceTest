@@ -1,9 +1,9 @@
-import { ThemeContext } from "@emotion/react";
 import React, { useState } from "react";
 import * as apiManager from "../api/apiManager";
 
 const EventContext = React.createContext({
   ordersList: [],
+  serverAddedProducts: [],
   onBuy: () => {},
   user: { cart: {} },
   createAnonymouseCartForUser: () => {},
@@ -17,6 +17,7 @@ export const eNavigate = {
 export const EventContextProvider = (props) => {
   const [ordersList, setOrdersList] = useState([]);
   const [user, setUser] = useState();
+  const [serverAddedProducts, setServerAddedProducts] = useState([]);
 
   const onBuyHandler = (order) => {
     addOrder(order);
@@ -25,55 +26,59 @@ export const EventContextProvider = (props) => {
   const addOrder = (order) => {
     addOrderToCart(order);
     setOrdersList((prev) => {
-      return [...prev, order]; //prev.concat(order);
+      return [...prev, order];
     });
   };
 
   const addOrderToCart = (order) => {
-    debugger;
     if (!user || !user.cart) {
       createAnonymouseCartForUser()
-        .then((res) => addItemToCart(order.product.id))
+        .then((res) => addItemToCart(order.product.id, res.guid))
         .catch((err) => {
           debugger;
           console.log(`error: ${err.message}`);
         });
-    }else{
-      addItemToCart(order.product.id)
-      .catch((err) => {
+    } else {
+      addItemToCart(order.product.id).catch((err) => {
         debugger;
         console.log(`error: ${err.message}`);
       });
     }
   };
 
-  function createAnonymouseCartForUser() {    
+  function createAnonymouseCartForUser() {
     return apiManager.createAnonymouseCart().then((res) => {
-      debugger;
       setUser((prevState) => {
         const newUser = {
           ...prevState,
-          cart:res,
+          cart: res,
         };
-        console.log(`new user: ${newUser}`);
         return newUser;
       });
       return res;
-      // resolve(res);
     });
   }
 
-  function addItemToCart(productId) {
-    debugger;
+  function addItemToCart(productId, cartGuid) {
     return apiManager
-      .addItemToCart({ productId: /*productId*/824267, cartGuid: user.cart.guid })
-      .then((res) => console.log(`back from apiManager.addItemToCart res: ${JSON.stringify(res)}`));
+      .addItemToCart({
+        productId: /*productId*/ 824267,
+        cartGuid: cartGuid ? cartGuid : user.cart.guid,
+      })
+      .then((res) => {
+        if (res.statusCode == "success") {
+          setServerAddedProducts((prev) => {
+            return [...prev, res];
+          });
+        }
+      });
   }
 
   return (
     <EventContext.Provider
       value={{
         ordersList: ordersList,
+        serverAddedProducts: serverAddedProducts,
         onBuy: onBuyHandler,
         user: user,
       }}
